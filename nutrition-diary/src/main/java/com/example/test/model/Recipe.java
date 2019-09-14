@@ -1,5 +1,7 @@
 package com.example.test.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -30,9 +32,12 @@ public class Recipe {
 	@ManyToOne
 	private Dose dose;
 
+	@OneToMany
+	private List<RecipeNutrient> nutrients;
 	
+
 	
-	
+
 	private Recipe() {}
 	
 	
@@ -113,6 +118,17 @@ public class Recipe {
 
 	public void setDose(Dose dose) {
 		this.dose = dose;
+	}
+
+	
+	public List<RecipeNutrient> getNutrients() {
+		return nutrients;
+	}
+
+
+
+	public void setNutrients(List<RecipeNutrient> nutrients) {
+		this.nutrients = nutrients;
 	}
 
 
