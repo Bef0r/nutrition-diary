@@ -1,9 +1,13 @@
 package com.example.test.model;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.NaturalId;
@@ -15,15 +19,21 @@ public class RecipeNutrient {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	
 	@NaturalId
-	private int recipe;
+	@ManyToOne
+	private Recipe recipe;
+	
 	private int nutrient;
+	
 	private int quantity;
 	
+	@OneToMany
+	private List<Nutrient> nutrients;
 	
 	public RecipeNutrient() {}
 	
-	public RecipeNutrient(int recipe, int nutrient, int quantity) {
+	public RecipeNutrient(Recipe recipe, int nutrient, int quantity) {
 		super();
 		this.recipe = recipe;
 		this.nutrient = nutrient;
@@ -37,12 +47,7 @@ public class RecipeNutrient {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getRecipeid() {
-		return recipe;
-	}
-	public void setRecipeid(int recipe) {
-		this.recipe = recipe;
-	}
+	
 	public int getNutrient() {
 		return nutrient;
 	}
@@ -54,6 +59,22 @@ public class RecipeNutrient {
 	}
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
+	}
+
+	public Recipe getRecipe() {
+		return recipe;
+	}
+
+	public void setRecipe(Recipe recipe) {
+		this.recipe = recipe;
+	}
+
+	public List<Nutrient> getNutrients() {
+		return nutrients;
+	}
+
+	public void setNutrients(List<Nutrient> nutrients) {
+		this.nutrients = nutrients;
 	}
 	
 	
