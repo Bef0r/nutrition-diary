@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.NaturalId;
 
 @Entity
-@Table(name = "Ingrediments")
+@Table(name = "Materials")
 public class Material {
 
 	@Id
