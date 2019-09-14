@@ -17,12 +17,22 @@ public class Dose {
 	@NaturalId
 	private String name;
 
-	public Dose() {}
 	
+	private Dose() {}
+	
+
 	public Dose(String name) {
 		super();
 		this.name = name;
 	}
+	
+	
+	public Dose(int id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+
 
 	public int getId() {
 		return id;
@@ -39,8 +49,5 @@ public class Dose {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	
 	
 }
