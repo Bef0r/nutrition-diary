@@ -4,6 +4,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
 
 @Entity
 public class Recipe {
@@ -14,63 +17,101 @@ public class Recipe {
 	
 	private String name;
 	
-	private int dose;
 	
 	private int recipe_group;
 	
 	private String preparation;
 
+	@ManyToOne
+	private Dose dose;
+
 	
-	public Recipe() {}
 	
-	public Recipe(String name, int dose, int recipe_group, String preparation) {
+	
+	private Recipe() {}
+	
+	
+
+	public Recipe(String name, int recipe_group, String preparation) {
 		super();
 		this.name = name;
-		this.dose = dose;
 		this.recipe_group = recipe_group;
 		this.preparation = preparation;
 	}
+	
+	
+
+	public Recipe(int id, String name, int recipe_group, String preparation, Dose dose) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.recipe_group = recipe_group;
+		this.preparation = preparation;
+		this.dose = dose;
+	}
+
+
 
 	public int getId() {
 		return id;
 	}
 
+
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
+
 
 	public String getName() {
 		return name;
 	}
 
+
+
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public int getDose() {
-		return dose;
-	}
 
-	public void setDose(int dose) {
-		this.dose = dose;
-	}
 
 	public int getRecipe_group() {
 		return recipe_group;
 	}
 
+
+
 	public void setRecipe_group(int recipe_group) {
 		this.recipe_group = recipe_group;
 	}
+
+
 
 	public String getPreparation() {
 		return preparation;
 	}
 
+
+
 	public void setPreparation(String preparation) {
 		this.preparation = preparation;
 	}
-	
+
+
+
+	public Dose getDose() {
+		return dose;
+	}
+
+
+
+	public void setDose(Dose dose) {
+		this.dose = dose;
+	}
+
+
+
 	
 	
 	
