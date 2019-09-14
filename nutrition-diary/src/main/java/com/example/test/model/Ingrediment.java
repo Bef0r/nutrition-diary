@@ -21,6 +21,7 @@ public class Ingrediment {
 	@ManyToOne
 	private Recipe recipe;
 	
+	@ManyToOne
 	private Material material;
 	
 	private int quantity;
