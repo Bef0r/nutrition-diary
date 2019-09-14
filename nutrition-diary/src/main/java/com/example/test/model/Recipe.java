@@ -22,8 +22,8 @@ public class Recipe {
 	@NaturalId
 	private String name;
 	
-	
-	private int recipe_group;
+	@ManyToOne
+	private RecipeGroup recipe_group;
 	
 	private String preparation;
 
@@ -37,7 +37,7 @@ public class Recipe {
 	
 	
 
-	public Recipe(String name, int recipe_group, String preparation) {
+	public Recipe(String name, RecipeGroup recipe_group, String preparation) {
 		super();
 		this.name = name;
 		this.recipe_group = recipe_group;
@@ -46,7 +46,7 @@ public class Recipe {
 	
 	
 
-	public Recipe(int id, String name, int recipe_group, String preparation, Dose dose) {
+	public Recipe(int id, String name, RecipeGroup recipe_group, String preparation, Dose dose) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -81,13 +81,13 @@ public class Recipe {
 
 
 
-	public int getRecipe_group() {
+	public RecipeGroup getRecipe_group() {
 		return recipe_group;
 	}
 
 
 
-	public void setRecipe_group(int recipe_group) {
+	public void setRecipe_group(RecipeGroup recipe_group) {
 		this.recipe_group = recipe_group;
 	}
 
