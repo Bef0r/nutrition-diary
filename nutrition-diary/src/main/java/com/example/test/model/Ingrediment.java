@@ -21,7 +21,7 @@ public class Ingrediment {
 	@ManyToOne
 	private Recipe recipe;
 	
-	private int material;
+	private Material material;
 	
 	private int quantity;
 	
@@ -34,7 +34,7 @@ public class Ingrediment {
 	
 	}
 	
-	public Ingrediment(Recipe recipe, int material, int quantity, Unit unit) {
+	public Ingrediment(Recipe recipe, Material material, int quantity, Unit unit) {
 		super();
 		this.recipe = recipe;
 		this.material = material;
@@ -66,11 +66,11 @@ public class Ingrediment {
 		this.recipe = recipe;
 	}
 
-	public int getMaterial() {
+	public Material getMaterial() {
 		return material;
 	}
 
-	public void setMaterial(int material) {
+	public void setMaterial(Material material) {
 		this.material = material;
 	}
 
