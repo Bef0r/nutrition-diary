@@ -24,8 +24,6 @@ public class RecipeNutrient {
 	@ManyToOne
 	private Recipe recipe;
 	
-	private int nutrient;
-	
 	private int quantity;
 	
 	@OneToMany
@@ -33,14 +31,16 @@ public class RecipeNutrient {
 	
 	public RecipeNutrient() {}
 	
-	public RecipeNutrient(Recipe recipe, int nutrient, int quantity) {
+	public RecipeNutrient(Recipe recipe, int quantity, List<Nutrient> nutrients) {
 		super();
 		this.recipe = recipe;
-		this.nutrient = nutrient;
 		this.quantity = quantity;
+		this.nutrients = nutrients;
 	}
-	
-	
+
+
+
+
 	public int getId() {
 		return id;
 	}
@@ -48,12 +48,6 @@ public class RecipeNutrient {
 		this.id = id;
 	}
 	
-	public int getNutrient() {
-		return nutrient;
-	}
-	public void setNutrient(int nutrient) {
-		this.nutrient = nutrient;
-	}
 	public int getQuantity() {
 		return quantity;
 	}
