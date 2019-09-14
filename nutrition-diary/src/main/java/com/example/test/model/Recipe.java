@@ -35,12 +35,12 @@ public class Recipe {
 	@OneToMany
 	private List<RecipeNutrient> nutrients;
 	
+	@OneToMany
+	private List<Ingrediment> ingrediments;
 
 	
 
 	private Recipe() {}
-	
-	
 
 	public Recipe(String name, RecipeGroup recipe_group, String preparation) {
 		super();
@@ -48,7 +48,6 @@ public class Recipe {
 		this.recipe_group = recipe_group;
 		this.preparation = preparation;
 	}
-	
 	
 
 	public Recipe(int id, String name, RecipeGroup recipe_group, String preparation, Dose dose) {
@@ -62,6 +61,8 @@ public class Recipe {
 
 
 
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -131,6 +132,13 @@ public class Recipe {
 		this.nutrients = nutrients;
 	}
 
+	public List<Ingrediment> getIngrediments() {
+		return ingrediments;
+	}
+
+	public void setIngrediments(List<Ingrediment> ingrediments) {
+		this.ingrediments = ingrediments;
+	}
 
 
 	
