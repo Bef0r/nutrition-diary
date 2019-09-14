@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.NaturalId;
@@ -21,18 +22,19 @@ public class Material {
 	
 	private String sortname;
 	
-	private int materialgroupid;
+	@ManyToOne
+	private MaterialGroup materialgroup;
 
 	
 	
 	
 	public Material(){}
 	
-	public Material(String name, String sortname, int materialgroupid) {
+	public Material(String name, String sortname, MaterialGroup materialgroup) {
 		super();
 		this.name = name;
 		this.sortname = sortname;
-		this.materialgroupid = materialgroupid;
+		this.materialgroup = materialgroup;
 	}
 
 	
@@ -62,13 +64,14 @@ public class Material {
 		this.sortname = sortname;
 	}
 
-	public int getMaterialgroupid() {
-		return materialgroupid;
+	public MaterialGroup getMaterialgroup() {
+		return materialgroup;
 	}
 
-	public void setMaterialgroupid(int materialgroupid) {
-		this.materialgroupid = materialgroupid;
+	public void setMaterialgroup(MaterialGroup materialgroup) {
+		this.materialgroup = materialgroup;
 	}
+
 	
 	
 	
