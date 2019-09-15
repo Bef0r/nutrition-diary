@@ -17,11 +17,10 @@ public class RecipeNutrient {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@NaturalId
 	@ManyToOne
 	private Recipe recipe;
 	
-	private int quantity;
+	private double quantity;
 	
 	@ManyToOne
 	private Nutrient nutrients;
@@ -31,14 +30,14 @@ public class RecipeNutrient {
 
 	public RecipeNutrient() {}
 
-	public RecipeNutrient(Recipe recipe, int quantity, Nutrient nutrients) {
+	public RecipeNutrient(Recipe recipe, double quantity, Nutrient nutrients) {
 		super();
 		this.recipe = recipe;
 		this.quantity = quantity;
 		this.nutrients = nutrients;
 	}
 
-	public RecipeNutrient(int id, Recipe recipe, int quantity, Nutrient nutrients) {
+	public RecipeNutrient(int id, Recipe recipe, double quantity, Nutrient nutrients) {
 		super();
 		this.id = id;
 		this.recipe = recipe;
@@ -65,11 +64,11 @@ public class RecipeNutrient {
 		this.recipe = recipe;
 	}
 
-	public int getQuantity() {
+	public double getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(double quantity) {
 		this.quantity = quantity;
 	}
 
