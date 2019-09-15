@@ -2,6 +2,7 @@ package com.example.test.model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -25,8 +26,9 @@ public class Recipe {
 	private String name;
 	
 	@ManyToOne
-	private RecipeGroup recipeGroup;
+	private RecipeGroup recipegroup;
 	
+	@Column(length=2000 )
 	private String preparation;
 
 	@ManyToOne
@@ -42,31 +44,30 @@ public class Recipe {
 
 	public Recipe() {}
 
-	public Recipe(String name, RecipeGroup recipeGroup, String preparation, Dose dose, List<RecipeNutrient> nutrients,
+	public Recipe(String name, RecipeGroup recipegroup, String preparation, Dose dose, List<RecipeNutrient> nutrients,
 			List<Ingrediment> ingrediments) {
 		super();
 		this.name = name;
-		this.recipeGroup = recipeGroup;
+		this.recipegroup = recipegroup;
 		this.preparation = preparation;
 		this.dose = dose;
 		this.nutrients = nutrients;
 		this.ingrediments = ingrediments;
 	}
-
-	public Recipe(int id, String name, RecipeGroup recipeGroup, String preparation, Dose dose,
+	
+	
+	public Recipe(int id, String name, RecipeGroup recipegroup, String preparation, Dose dose,
 			List<RecipeNutrient> nutrients, List<Ingrediment> ingrediments) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.recipeGroup = recipeGroup;
+		this.recipegroup = recipegroup;
 		this.preparation = preparation;
 		this.dose = dose;
 		this.nutrients = nutrients;
 		this.ingrediments = ingrediments;
 	}
 
-	
-	
 	public int getId() {
 		return id;
 	}
@@ -90,19 +91,16 @@ public class Recipe {
 	}
 	
 	
+	public RecipeGroup getRecipegroup() {
+		return recipegroup;
+	}
+
 	
-	public RecipeGroup getRecipeGroup() {
-		return recipeGroup;
+	public void setRecipegroup(RecipeGroup recipegroup) {
+		this.recipegroup = recipegroup;
 	}
 
-
-
-	public void setRecipeGroup(RecipeGroup recipeGroup) {
-		this.recipeGroup = recipeGroup;
-	}
-
-
-
+	
 	public String getPreparation() {
 		return preparation;
 	}
@@ -148,6 +146,4 @@ public class Recipe {
 	public void setIngrediments(List<Ingrediment> ingrediments) {
 		this.ingrediments = ingrediments;
 	}
-
-	
 }
