@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.NaturalId;
@@ -22,8 +21,7 @@ public class Nutrient {
 	
 	private String abbreviation;
 	
-	@ManyToOne
-	private Unit unit;
+	private String unit;
 
 	
 	
@@ -31,14 +29,14 @@ public class Nutrient {
 		super();
 	}
 
-	public Nutrient(String name, String abbreviation, Unit unit) {
+	public Nutrient(String name, String abbreviation, String unit) {
 		super();
 		this.name = name;
 		this.abbreviation = abbreviation;
 		this.unit = unit;
 	}
 
-	public Nutrient(int id, String name, String abbreviation, Unit unit) {
+	public Nutrient(int id, String name, String abbreviation, String unit) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -84,13 +82,13 @@ public class Nutrient {
 
 
 
-	public Unit getUnit() {
+	public String getUnit() {
 		return unit;
 	}
 
 
 
-	public void setUnit(Unit unit) {
+	public void setUnit(String unit) {
 		this.unit = unit;
 	}
 	
