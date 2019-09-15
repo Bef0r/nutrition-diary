@@ -21,7 +21,7 @@ public class MaterialNutrient {
 	@ManyToOne
 	private Nutrient nutrient;
 	
-	private int quantity;
+	private double quantity;
 
 	
 	
@@ -36,7 +36,7 @@ public class MaterialNutrient {
 	}
 	
 	
-	public MaterialNutrient(int id, Material material, Nutrient nutrient, int quantity) {
+	public MaterialNutrient(int id, Material material, Nutrient nutrient, double quantity) {
 		super();
 		this.id = id;
 		this.material = material;
@@ -70,11 +70,11 @@ public class MaterialNutrient {
 		this.nutrient = nutrient;
 	}
 
-	public int getQuantity() {
+	public double getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(double quantity) {
 		this.quantity = quantity;
 	}
 	
