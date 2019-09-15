@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.NaturalId;
 
 @Entity
-@Table(name="Recipe_group")
+@Table(name="recipe_group")
 public class RecipeGroup {
 
 	@Id
@@ -31,6 +31,14 @@ public class RecipeGroup {
 		this.name = name;
 	}
 
+	public RecipeGroup(int id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -46,12 +54,5 @@ public class RecipeGroup {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 }

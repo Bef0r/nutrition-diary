@@ -14,7 +14,7 @@ import org.hibernate.annotations.NaturalId;
 
 
 @Entity
-@Table(name="Recipes")
+@Table(name="recipes")
 public class Recipe {
 	
 	@Id
@@ -25,7 +25,7 @@ public class Recipe {
 	private String name;
 	
 	@ManyToOne
-	private RecipeGroup recipe_group;
+	private RecipeGroup recipeGroup;
 	
 	private String preparation;
 
@@ -40,26 +40,30 @@ public class Recipe {
 
 	
 
-	private Recipe() {}
+	public Recipe() {}
 
-	public Recipe(String name, RecipeGroup recipe_group, String preparation) {
+	public Recipe(String name, RecipeGroup recipeGroup, String preparation, Dose dose, List<RecipeNutrient> nutrients,
+			List<Ingrediment> ingrediments) {
 		super();
 		this.name = name;
-		this.recipe_group = recipe_group;
+		this.recipeGroup = recipeGroup;
 		this.preparation = preparation;
+		this.dose = dose;
+		this.nutrients = nutrients;
+		this.ingrediments = ingrediments;
 	}
-	
 
-	public Recipe(int id, String name, RecipeGroup recipe_group, String preparation, Dose dose) {
+	public Recipe(int id, String name, RecipeGroup recipeGroup, String preparation, Dose dose,
+			List<RecipeNutrient> nutrients, List<Ingrediment> ingrediments) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.recipe_group = recipe_group;
+		this.recipeGroup = recipeGroup;
 		this.preparation = preparation;
 		this.dose = dose;
+		this.nutrients = nutrients;
+		this.ingrediments = ingrediments;
 	}
-
-
 
 	
 	
@@ -84,17 +88,17 @@ public class Recipe {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-
-
-	public RecipeGroup getRecipe_group() {
-		return recipe_group;
+	
+	
+	
+	public RecipeGroup getRecipeGroup() {
+		return recipeGroup;
 	}
 
 
 
-	public void setRecipe_group(RecipeGroup recipe_group) {
-		this.recipe_group = recipe_group;
+	public void setRecipeGroup(RecipeGroup recipeGroup) {
+		this.recipeGroup = recipeGroup;
 	}
 
 
@@ -121,7 +125,8 @@ public class Recipe {
 		this.dose = dose;
 	}
 
-	
+
+
 	public List<RecipeNutrient> getNutrients() {
 		return nutrients;
 	}
@@ -132,16 +137,17 @@ public class Recipe {
 		this.nutrients = nutrients;
 	}
 
+
+
 	public List<Ingrediment> getIngrediments() {
 		return ingrediments;
 	}
+
+
 
 	public void setIngrediments(List<Ingrediment> ingrediments) {
 		this.ingrediments = ingrediments;
 	}
 
-
-	
-	
 	
 }

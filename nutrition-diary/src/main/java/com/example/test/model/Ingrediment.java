@@ -10,7 +10,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.NaturalId;
 
 @Entity
-@Table(name = "Ingrediments")
+@Table(name = "ingrediments")
 public class Ingrediment {
 	
 	@Id
@@ -34,7 +34,7 @@ public class Ingrediment {
 	public Ingrediment() {
 	
 	}
-	
+
 	public Ingrediment(Recipe recipe, Material material, int quantity, Unit unit) {
 		super();
 		this.recipe = recipe;
@@ -44,48 +44,70 @@ public class Ingrediment {
 	}
 
 
+	public Ingrediment(int id, Recipe recipe, Material material, int quantity, Unit unit) {
+		super();
+		this.id = id;
+		this.recipe = recipe;
+		this.material = material;
+		this.quantity = quantity;
+		this.unit = unit;
+	}
 
-
-
-
-
-
-
+	
+	
 	public int getId() {
 		return id;
 	}
+
+
 
 	public void setId(int id) {
 		this.id = id;
 	}
 
+
+
 	public Recipe getRecipe() {
 		return recipe;
 	}
+
+
 
 	public void setRecipe(Recipe recipe) {
 		this.recipe = recipe;
 	}
 
+
+
 	public Material getMaterial() {
 		return material;
 	}
+
+
 
 	public void setMaterial(Material material) {
 		this.material = material;
 	}
 
+
+
 	public int getQuantity() {
 		return quantity;
 	}
+
+
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 
+
+
 	public Unit getUnit() {
 		return unit;
 	}
+
+
 
 	public void setUnit(Unit unit) {
 		this.unit = unit;

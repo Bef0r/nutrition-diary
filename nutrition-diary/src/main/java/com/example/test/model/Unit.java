@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.NaturalId;
 
 @Entity
-@Table(name="Units")
+@Table(name="units")
 public class Unit {
 	
 	@Id
@@ -30,6 +30,15 @@ public class Unit {
 		this.name = name;
 	}
 
+	public Unit(int id, String name) {
+		super();
+		this.id = id;
+		this.name = name;
+	}
+
+	
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -45,8 +54,4 @@ public class Unit {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
-	
-	
 }

@@ -8,7 +8,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "MaterialNutrients")
+@Table(name = "material_nutrients")
 public class MaterialNutrient {
 
 	@Id
@@ -29,12 +29,23 @@ public class MaterialNutrient {
 	public MaterialNutrient() {
 		super();
 	}
-
-	public MaterialNutrient(int quantity) {
+	
+	public MaterialNutrient(Material material) {
 		super();
+		this.material = material;
+	}
+	
+	
+	public MaterialNutrient(int id, Material material, Nutrient nutrient, int quantity) {
+		super();
+		this.id = id;
+		this.material = material;
+		this.nutrient = nutrient;
 		this.quantity = quantity;
 	}
 
+	
+	
 	public int getId() {
 		return id;
 	}
@@ -66,6 +77,5 @@ public class MaterialNutrient {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	
 	
 }

@@ -10,7 +10,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.NaturalId;
 
 @Entity
-@Table(name = "Materials")
+@Table(name = "materials")
 public class Material {
 
 	@Id
@@ -20,59 +20,85 @@ public class Material {
 	@NaturalId
 	private String name;
 	
-	private String sortname;
+	private String sortName;
 	
 	@ManyToOne
-	private MaterialGroup materialgroup;
+	private MaterialGroup materialGroup;
 
 	
 	
 	
 	public Material(){}
 	
-	public Material(String name, String sortname, MaterialGroup materialgroup) {
+	public Material(String name, String sortName, MaterialGroup materialGroup) {
 		super();
 		this.name = name;
-		this.sortname = sortname;
-		this.materialgroup = materialgroup;
+		this.sortName = sortName;
+		this.materialGroup = materialGroup;
+	}
+	
+	public Material(int id, String name, String sortName, MaterialGroup materialGroup) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.sortName = sortName;
+		this.materialGroup = materialGroup;
 	}
 
-	
 	
 	
 	public int getId() {
 		return id;
 	}
 
+
+
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
+
+
 
 	public String getName() {
 		return name;
 	}
 
+
+
+
 	public void setName(String name) {
 		this.name = name;
 	}
 
-	public String getSortname() {
-		return sortname;
+
+
+
+	public String getSortName() {
+		return sortName;
 	}
 
-	public void setSortname(String sortname) {
-		this.sortname = sortname;
+
+
+
+	public void setSortName(String sortName) {
+		this.sortName = sortName;
 	}
 
-	public MaterialGroup getMaterialgroup() {
-		return materialgroup;
+
+
+
+	public MaterialGroup getMaterialGroup() {
+		return materialGroup;
 	}
 
-	public void setMaterialgroup(MaterialGroup materialgroup) {
-		this.materialgroup = materialgroup;
-	}
 
-	
+
+
+	public void setMaterialGroup(MaterialGroup materialGroup) {
+		this.materialGroup = materialGroup;
+	}
 	
 	
 }

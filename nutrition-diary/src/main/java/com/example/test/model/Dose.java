@@ -9,7 +9,7 @@ import javax.persistence.Table;
 import org.hibernate.annotations.NaturalId;
 
 @Entity
-@Table(name="Doses")
+@Table(name="doses")
 public class Dose {
 
 	@Id
@@ -21,13 +21,11 @@ public class Dose {
 
 	
 	private Dose() {}
-	
 
 	public Dose(String name) {
 		super();
 		this.name = name;
 	}
-	
 	
 	public Dose(int id, String name) {
 		super();
@@ -35,7 +33,8 @@ public class Dose {
 		this.name = name;
 	}
 
-
+	
+	
 	public int getId() {
 		return id;
 	}

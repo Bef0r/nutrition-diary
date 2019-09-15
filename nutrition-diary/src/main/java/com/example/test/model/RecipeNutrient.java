@@ -1,19 +1,16 @@
 package com.example.test.model;
 
-import java.util.List;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.NaturalId;
 
 @Entity
-@Table(name ="Recipe_Nutrients")
+@Table(name ="recipe_nutrients")
 public class RecipeNutrient {
 
 	@Id
@@ -29,8 +26,11 @@ public class RecipeNutrient {
 	@ManyToOne
 	private Nutrient nutrients;
 	
-	public RecipeNutrient() {}
 	
+	
+
+	public RecipeNutrient() {}
+
 	public RecipeNutrient(Recipe recipe, int quantity, Nutrient nutrients) {
 		super();
 		this.recipe = recipe;
@@ -38,21 +38,23 @@ public class RecipeNutrient {
 		this.nutrients = nutrients;
 	}
 
-
-
+	public RecipeNutrient(int id, Recipe recipe, int quantity, Nutrient nutrients) {
+		super();
+		this.id = id;
+		this.recipe = recipe;
+		this.quantity = quantity;
+		this.nutrients = nutrients;
+	}
+	
+	
+	
 
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
-	}
-	
-	public int getQuantity() {
-		return quantity;
-	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
 	}
 
 	public Recipe getRecipe() {
@@ -63,14 +65,19 @@ public class RecipeNutrient {
 		this.recipe = recipe;
 	}
 
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
 	public Nutrient getNutrients() {
 		return nutrients;
 	}
 
 	public void setNutrients(Nutrient nutrients) {
 		this.nutrients = nutrients;
-	}
-	
-	
-	
+	}	
 }
