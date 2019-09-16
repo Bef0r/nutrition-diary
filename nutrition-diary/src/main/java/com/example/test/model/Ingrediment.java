@@ -7,7 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.NaturalId;
 
 @Entity
 @Table(name = "ingrediments")
@@ -17,14 +16,13 @@ public class Ingrediment {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@NaturalId
 	@ManyToOne
 	private Recipe recipe;
 	
 	@ManyToOne
 	private Material material;
 	
-	private int quantity;
+	private double quantity;
 	
 	@ManyToOne
 	private Unit unit;
@@ -35,7 +33,7 @@ public class Ingrediment {
 	
 	}
 
-	public Ingrediment(Recipe recipe, Material material, int quantity, Unit unit) {
+	public Ingrediment(Recipe recipe, Material material, double quantity, Unit unit) {
 		super();
 		this.recipe = recipe;
 		this.material = material;
@@ -91,13 +89,13 @@ public class Ingrediment {
 
 
 
-	public int getQuantity() {
+	public double getQuantity() {
 		return quantity;
 	}
 
 
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(double quantity) {
 		this.quantity = quantity;
 	}
 
