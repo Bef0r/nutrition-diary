@@ -7,5 +7,5 @@ import com.example.test.model.Recipe;
 
 @Repository
 public interface RecipeRepository extends JpaRepository<Recipe, Integer> {
-
+	Recipe findByName(String name);
 }

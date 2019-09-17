@@ -7,5 +7,6 @@ import com.example.test.model.Nutrient;
 
 @Repository
 public interface NutrientRepository extends JpaRepository<Nutrient, Integer> {
-
+	
+	public Nutrient findByName(String name);
 }
