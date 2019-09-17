@@ -44,15 +44,12 @@ public class Recipe {
 
 	public Recipe() {}
 
-	public Recipe(String name, RecipeGroup recipegroup, String preparation, Dose dose, List<RecipeNutrient> nutrients,
-			List<Ingrediment> ingrediments) {
+	public Recipe(String name, RecipeGroup recipegroup, String preparation, Dose dose) {
 		super();
 		this.name = name;
 		this.recipegroup = recipegroup;
 		this.preparation = preparation;
 		this.dose = dose;
-		this.nutrients = nutrients;
-		this.ingrediments = ingrediments;
 	}
 	
 	
@@ -67,6 +64,7 @@ public class Recipe {
 		this.nutrients = nutrients;
 		this.ingrediments = ingrediments;
 	}
+
 
 	public int getId() {
 		return id;
