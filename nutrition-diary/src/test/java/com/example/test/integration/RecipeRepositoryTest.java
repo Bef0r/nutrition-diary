@@ -27,12 +27,12 @@ public class RecipeRepositoryTest {
 	@Test
 	public void when_FindByName_then_return_recipe() {
 		
-		RecipeGroup recipegroup = new RecipeGroup("TESZT RECIPEGROUP");
+		RecipeGroup recipeGroup = new RecipeGroup("TESZT RECIPEGROUP");
 		Dose dose = new Dose ("TESZT DOSE");
 		
-		Recipe recipe = new Recipe("Teszt",recipegroup,"TESZT Preparation",dose);
+		Recipe recipe = new Recipe("Teszt",recipeGroup,"TESZT Preparation",dose);
 
-		entityManager.persist(recipegroup);
+		entityManager.persist(recipeGroup);
 		entityManager.persist(dose);
 		entityManager.persist(recipe);
 		entityManager.flush();
