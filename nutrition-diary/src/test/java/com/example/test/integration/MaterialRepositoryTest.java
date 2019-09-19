@@ -14,7 +14,6 @@ import com.example.test.model.MaterialGroup;
 import com.example.test.repository.MaterialRepository;
 
 
-
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class MaterialRepositoryTest {
@@ -26,8 +25,10 @@ public class MaterialRepositoryTest {
 
 	@Test
 	public void when_FindByName_then_return_material() {
-		MaterialGroup materialg = new MaterialGroup("TESZT GROUP");
-		Material material = new Material("Teszt","TESZT SORTNAME", materialg);
+		MaterialGroup materialGroup = new MaterialGroup("TESZT GROUP");
+		Material material = new Material("Teszt","TESZT SORTNAME", materialGroup);
+		
+		entityManager.persist(materialGroup);
 		entityManager.persist(material);
 		entityManager.flush();
 
