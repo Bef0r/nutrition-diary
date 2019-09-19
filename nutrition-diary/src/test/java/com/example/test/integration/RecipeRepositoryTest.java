@@ -31,6 +31,9 @@ public class RecipeRepositoryTest {
 		Dose dose = new Dose ("TESZT DOSE");
 		
 		Recipe recipe = new Recipe("Teszt",recipegroup,"TESZT Preparation",dose);
+
+		entityManager.persist(recipegroup);
+		entityManager.persist(dose);
 		entityManager.persist(recipe);
 		entityManager.flush();
 
